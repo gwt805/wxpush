@@ -15,7 +15,7 @@ today = str(nowtime.year) + "-" + str(nowtime.month) + "-" + str(nowtime.day) + 
 city = os.getenv("CITYS", "")
 wether_key = os.getenv("Wether_KEY", "")
 token = os.getenv("TOKEN", "")
-uid = os.getenv("UID", "")
+uid = os.getenv("UID", [""])
 day = os.getenv("DAY", "")
 bao = os.getenv("BAO", "")
 birthday = os.getenv("BTHDAY", "")
@@ -111,7 +111,7 @@ def main():
     tmp += f"<b>今日份歌曲</b>\n歌曲名: {get_music()[0]}\n<audio src={get_music()[1]} controls autoplay loop></div>"
     contents = f"<div style='background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position-y: center;background-image: url(https://img2.baidu.com/it/u=1550919657,3261887531&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1422)'>现在是&nbsp;&nbsp;<font color={random_color()}>{today}</font>&nbsp;&nbsp;<font color={random_color()}>{get_week_day()}</font>\n<hr>" + tmp
 
-    rep = WxPusher.send_message(content=contents, uids=[uid], token=f"{token}")
+    rep = WxPusher.send_message(content=contents, uids=uid, token=f"{token}")
     logger.info(rep["data"])
 
 if __name__ == "__main__":
