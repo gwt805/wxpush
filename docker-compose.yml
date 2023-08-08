@@ -1,0 +1,9 @@
+version: '3'  
+services:  
+  wt-wxpush:  
+    build: .
+    command: python main.py
+    volumes:
+      - .:/app
+    restart: always
+    container_name: wt-wxpush
