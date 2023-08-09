@@ -118,7 +118,7 @@ def main():
 
 if __name__ == "__main__":
     while True:
-        if datetime.now().strftime("%H:%M:%S") == "08:00:00":
+        if datetime.now().strftime("%H:%M:%S") == "00:00:00":
             main()
         time.sleep(1)
     
